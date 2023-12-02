@@ -1,6 +1,9 @@
 import nmap, sys
-
-def scan_open_ports(scanner):
+nmapPath = r"C:\Program Files (x86)\Nmap"
+nmapPath2 = "C:\\Program Files (x86)\\Nmap\\"
+nmapPath3 = "C:\\Program Files (x86)\\Nmap\\nmap.exe"
+scanner = nmap.PortScanner(nmap_search_path=(nmapPath, nmapPath2, nmapPath3))
+def scan_open_ports():
     if (len(sys.argv) < 3):
         ip = input("Enter the ip address: ")
         portrange = input("Enter the port range: ")
@@ -61,25 +64,3 @@ def get_tool_choice():
         toolChoice = input("Invalid choice, try again: ")
     toolChoice = int(toolChoice)
     return toolChoice
-
-def main():
-    nmapPath = r"C:\Program Files (x86)\Nmap"
-    nmapPath2 = "C:\\Program Files (x86)\\Nmap\\"
-    nmapPath3 = "C:\\Program Files (x86)\\Nmap\\nmap.exe"
-
-    #initialize
-    #print(f"Scotts {sys.argv[0]}!\n")
-    nmScanner = nmap.PortScanner(nmap_search_path=(nmapPath, nmapPath2, nmapPath3))
-
-    running = True #set the program to running
-    while (running):
-        toolChoice = get_tool_choice()
-        if (toolChoice == 0):
-            running = False
-        if (toolChoice == 1):
-            scanResults = scan_open_ports(nmScanner)
-            print(f"{scanResults}\n")
-    return
-
-if __name__ == '__main__':
-    main()
