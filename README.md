@@ -11,6 +11,7 @@ This Python script utilizes Nmap for network scanning, enabling users to scan fo
 ## Requirements
 - Python 3.x
 - Nmap
+- Please ensure you have nmap installed on your system and added to the PATH environmental variable before use
 
 ## Usage
 1. Clone this repository.
